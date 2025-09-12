@@ -62,6 +62,8 @@ export default function CustomCursor() {
 
     const handleMouseEnter = (e: Event) => {
       const target = e.target as HTMLElement;
+      if (!target || typeof target.matches !== 'function') return;
+      
       let cursorType: CursorState['cursorType'] = 'default';
       
       if (target.matches('button, .cursor-button, [role="button"]')) {

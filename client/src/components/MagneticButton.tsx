@@ -9,6 +9,8 @@ interface MagneticButtonProps {
   onClick?: () => void;
   intensity?: number; // Magnetic pull intensity (default: 30)
   'data-testid'?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export default function MagneticButton({
@@ -19,6 +21,8 @@ export default function MagneticButton({
   onClick,
   intensity = 30,
   'data-testid': testId,
+  type = "button",
+  disabled = false,
   ...props
 }: MagneticButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -93,6 +97,8 @@ export default function MagneticButton({
       size={size}
       onClick={onClick}
       data-testid={testId}
+      type={type}
+      disabled={disabled}
       style={{
         transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0)`,
         transition: isHovering ? 'none' : 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
