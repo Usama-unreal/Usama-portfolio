@@ -4,7 +4,7 @@ Your portfolio has been converted to work perfectly with Hostinger shared hostin
 
 ## 📁 Step 1: Build Your Site
 
-The production build has been created in the `client/dist` folder. This contains all the optimized static files.
+The production build has been created in the `dist/public` folder. This contains all the optimized static files.
 
 ## 🌐 Step 2: Setup Form Handling (Optional but Recommended)
 
@@ -24,9 +24,9 @@ The contact form will automatically fall back to opening the user's email client
 2. Go to **Website** → **File Manager**
 3. Navigate to the `public_html` folder
 4. **Delete any existing files** in `public_html` (like default index.html)
-5. Upload **ALL contents** from your `client/dist` folder to `public_html`
+5. Upload **ALL contents** from your `dist/public` folder to `public_html`
    
-   **Important:** Upload the CONTENTS of the `dist` folder, not the `dist` folder itself!
+   **Important:** Upload the CONTENTS of the `dist/public` folder, not the `dist/public` folder itself!
    
    Your file structure should look like:
    ```
@@ -47,7 +47,7 @@ The contact form will automatically fall back to opening the user's email client
    - **Username:** Your FTP username  
    - **Password:** Your FTP password
 3. Navigate to `public_html` directory
-4. Upload all contents from `client/dist` folder
+4. Upload all contents from `dist/public` folder
 
 ## ✅ Step 4: Test Your Website
 

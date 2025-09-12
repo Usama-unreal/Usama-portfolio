@@ -158,9 +158,16 @@ export default function ContactForm() {
     }
   };
 
-  const handleSocialClick = (platform: string) => {
-    console.log(`Opening ${platform} profile`);
-    // todo: remove mock functionality - replace with actual social links
+  const handleSocialClick = (url: string) => {
+    if (url && url !== 'https://linkedin.com/in/YOUR_USERNAME' && url !== 'https://instagram.com/YOUR_USERNAME' && url !== 'https://youtube.com/@YOUR_CHANNEL') {
+      window.open(url, '_blank');
+    } else {
+      toast({
+        title: "Social link not configured",
+        description: "Please update the social links in the code with your actual profiles.",
+        variant: "destructive",
+      });
+    }
   };
 
   if (isSubmitted) {
@@ -243,7 +250,7 @@ export default function ContactForm() {
                     key={social.label}
                     variant="outline"
                     size="icon"
-                    onClick={() => handleSocialClick(social.label)}
+                    onClick={() => handleSocialClick(social.url)}
                     data-testid={`social-${social.label.toLowerCase()}`}
                     intensity={25}
                   >
