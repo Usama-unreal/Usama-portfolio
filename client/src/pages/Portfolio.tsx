@@ -6,6 +6,7 @@ import PortfolioGallery from "@/components/PortfolioGallery";
 import SkillsShowcase from "@/components/SkillsShowcase";
 import AboutSection from "@/components/AboutSection";
 import ContactForm from "@/components/ContactForm";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function Portfolio() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -44,6 +45,7 @@ export default function Portfolio() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-background text-foreground">
+        <CustomCursor />
         <Navigation onNavigate={scrollToSection} />
         
         <main>

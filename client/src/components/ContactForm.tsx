@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
+import MagneticButton from "./MagneticButton";
 import { 
   Mail, 
   MapPin, 
@@ -193,15 +193,16 @@ export default function ContactForm() {
               <h4 className="font-semibold mb-4">Follow My Work</h4>
               <div className="flex gap-4">
                 {socialLinks.map((social) => (
-                  <Button
+                  <MagneticButton
                     key={social.label}
                     variant="outline"
                     size="icon"
                     onClick={() => handleSocialClick(social.label)}
                     data-testid={`social-${social.label.toLowerCase()}`}
+                    intensity={25}
                   >
                     {social.icon}
-                  </Button>
+                  </MagneticButton>
                 ))}
               </div>
             </div>
@@ -329,12 +330,13 @@ export default function ContactForm() {
                 />
               </div>
 
-              <Button
+              <MagneticButton
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
                 className="w-full sm:w-auto"
                 data-testid="button-submit"
+                intensity={40}
               >
                 {isSubmitting ? (
                   <>
@@ -347,7 +349,7 @@ export default function ContactForm() {
                     Send Message
                   </>
                 )}
-              </Button>
+              </MagneticButton>
             </form>
           </div>
         </div>

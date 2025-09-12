@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Play, Maximize } from "lucide-react";
+import MagneticButton from "./MagneticButton";
 import archRender from "@assets/generated_images/Architectural_visualization_render_sample_07099f8c.png";
 import vfxBreakdown from "@assets/generated_images/VFX_particle_explosion_breakdown_c3b9ef43.png";
 import animationFrame from "@assets/generated_images/Abstract_3D_animation_frame_d0047f68.png";
@@ -121,15 +121,16 @@ export default function PortfolioGallery({ onItemClick }: PortfolioGalleryProps)
         {/* Category Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
-            <Button
+            <MagneticButton
               key={category}
               variant={activeCategory === category ? "default" : "outline"}
               onClick={() => handleCategoryClick(category)}
               className="px-6 py-2"
               data-testid={`filter-${category.toLowerCase().replace(" ", "-")}`}
+              intensity={25}
             >
               {category}
-            </Button>
+            </MagneticButton>
           ))}
         </div>
 
@@ -138,7 +139,7 @@ export default function PortfolioGallery({ onItemClick }: PortfolioGalleryProps)
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="group relative overflow-hidden rounded-lg bg-card border cursor-pointer transition-all duration-300 hover:scale-[1.02] hover-elevate"
+              className="group relative overflow-hidden rounded-lg bg-card border cursor-image transition-all duration-500 hover:scale-[1.02] hover-elevate hover:shadow-2xl hover:shadow-primary/20"
               onMouseEnter={() => setHoveredItem(item.id)}
               onMouseLeave={() => setHoveredItem(null)}
               onClick={() => handleItemClick(item)}
@@ -167,18 +168,18 @@ export default function PortfolioGallery({ onItemClick }: PortfolioGalleryProps)
                 )}
 
                 {/* Hover Actions */}
-                <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                  hoveredItem === item.id ? "opacity-100" : "opacity-0"
+                <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
+                  hoveredItem === item.id ? "opacity-100 scale-100" : "opacity-0 scale-95"
                 }`}>
                   <div className="flex gap-3">
-                    <Button size="sm" variant="secondary">
+                    <MagneticButton size="sm" variant="secondary" intensity={20}>
                       <Maximize className="w-4 h-4 mr-2" />
                       View
-                    </Button>
-                    <Button size="sm" variant="outline">
+                    </MagneticButton>
+                    <MagneticButton size="sm" variant="outline" intensity={20}>
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Details
-                    </Button>
+                    </MagneticButton>
                   </div>
                 </div>
               </div>
@@ -212,10 +213,10 @@ export default function PortfolioGallery({ onItemClick }: PortfolioGalleryProps)
 
         {/* View More */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" data-testid="button-view-more">
+          <MagneticButton variant="outline" size="lg" data-testid="button-view-more" intensity={45}>
             View Complete Portfolio
             <ExternalLink className="w-4 h-4 ml-2" />
-          </Button>
+          </MagneticButton>
         </div>
       </div>
     </section>

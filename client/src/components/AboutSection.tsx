@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Download, Award, Users, Calendar } from "lucide-react";
+import MagneticButton from "./MagneticButton";
 import profileImage from "@assets/generated_images/Professional_artist_headshot_portrait_35684f42.png";
 
 export default function AboutSection() {
@@ -152,22 +152,24 @@ export default function AboutSection() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
+              <MagneticButton 
                 size="lg" 
                 onClick={handleDownloadCV}
                 data-testid="button-download-cv"
+                intensity={35}
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download CV
-              </Button>
-              <Button 
+              </MagneticButton>
+              <MagneticButton 
                 variant="outline" 
                 size="lg"
                 onClick={handleViewCredentials}
                 data-testid="button-view-credentials"
+                intensity={35}
               >
                 View Credentials
-              </Button>
+              </MagneticButton>
             </div>
 
             {/* Quote */}

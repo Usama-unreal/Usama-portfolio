@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { ArrowDown, Play } from "lucide-react";
+import MagneticButton from "./MagneticButton";
+import InteractiveBackground from "./InteractiveBackground";
 import heroImage from "@assets/generated_images/Cinematic_hero_background_scene_c0874808.png";
 
 interface HeroSectionProps {
@@ -65,21 +66,13 @@ export default function HeroSection({ onExploreClick, onPlayReelClick }: HeroSec
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
       </div>
 
-      {/* Floating Particles Effect */}
-      <div className="absolute inset-0 overflow-hidden">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-primary/40 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Interactive Particle Background */}
+      <InteractiveBackground 
+        className="opacity-60"
+        particleCount={60}
+        connectionDistance={120}
+        mouseInfluence={150}
+      />
 
       {/* Main Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
@@ -101,32 +94,34 @@ export default function HeroSection({ onExploreClick, onPlayReelClick }: HeroSec
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <Button
+          <MagneticButton
             size="lg"
             onClick={handleExploreClick}
             className="px-8 py-6 text-lg font-semibold bg-primary/90 backdrop-blur-sm border border-primary-border"
             data-testid="button-explore-portfolio"
+            intensity={40}
           >
             Explore Portfolio
-          </Button>
+          </MagneticButton>
           
-          <Button
+          <MagneticButton
             variant="outline"
             size="lg"
             onClick={handlePlayReelClick}
             className="px-8 py-6 text-lg font-semibold bg-background/10 backdrop-blur-sm"
             data-testid="button-play-reel"
+            intensity={35}
           >
             <Play className="w-5 h-5 mr-2" />
             Demo Reel
-          </Button>
+          </MagneticButton>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-            <span className="text-sm mb-2">Scroll to explore</span>
-            <ArrowDown className="w-6 h-6 animate-bounce" data-testid="scroll-indicator" />
+          <div className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors cursor-hover hover-target group">
+            <span className="text-sm mb-2 group-hover:scale-110 transition-transform">Scroll to explore</span>
+            <ArrowDown className="w-6 h-6 animate-bounce group-hover:scale-125 transition-transform" data-testid="scroll-indicator" />
           </div>
         </div>
       </div>
