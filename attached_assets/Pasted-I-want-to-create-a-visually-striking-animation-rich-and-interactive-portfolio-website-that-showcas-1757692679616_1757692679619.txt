@@ -1,0 +1,89 @@
+I want to create a visually striking, animation-rich, and interactive portfolio website that showcases my expertise as a 3D Visualizer and VFX Artist. The website should reflect creativity, technical mastery, and storytelling through visuals while ensuring a smooth and engaging user experience. It should appeal to potential clients, collaborators, and employers by highlighting my artistic vision and technical skills in a futuristic, cinematic style.
+
+Core Features:
+
+1. Home / Hero Section:
+
+A cinematic introduction with my name, title (“3D Visualizer & VFX Artist”), and a short creative statement.
+
+Dynamic animations such as particle effects, 3D shapes, interactive hover elements, or subtle motion backgrounds that evoke depth and movement.
+
+Optionally, embed a short video reel or animation loop in the background to immediately showcase my style.
+
+2. Portfolio Gallery:
+
+Sections categorized by type of work: Architectural renders, VFX breakdowns, animations, motion graphics, etc.
+
+Use sliders, grid layouts, or carousels with hover-triggered animations.
+
+Include video embeds from platforms like YouTube or Vimeo, or direct upload previews for animations and walkthroughs.
+
+Provide before/after comparisons or interactive overlays that show different layers or stages of a project.
+
+3. Skills & Tools Showcase:
+
+Animated progress bars, circular graphs, or interactive sliders for tools like Blender, Unreal Engine, Houdini, After Effects, Nuke, etc.
+
+Add tooltips with descriptions or links to certifications and tutorials.
+
+On-scroll animations that trigger as the user reaches this section.
+
+4. About Section:
+
+A creative storytelling layout describing my background, inspirations, and approach.
+
+Include sketches, thumbnails, or mood boards that complement the text.
+
+Subtle animations like fade-ins or parallax effects to enhance the narrative.
+
+5. Contact Section:
+
+A sleek, easy-to-use contact form with fields for name, email, message, and social links (LinkedIn, ArtStation, Instagram, etc.).
+
+Interactive feedback such as animations when a message is sent or error alerts when fields are empty.
+
+6. Dark Mode / Light Mode Toggle:
+
+A smooth transition between modes to ensure optimal viewing of visuals and content.
+
+7. Navigation & User Experience:
+
+A sticky header or side menu with icons for easy navigation between sections.
+
+Smooth scrolling, section highlights, and animated scroll indicators.
+
+Lazy loading for images and videos to enhance performance without slowing down animations.
+
+8. Performance Optimization:
+
+Ensure the site loads quickly even with high-quality media assets.
+
+Optimize animations and assets using best practices without compromising visuals.
+
+Ensure SEO-friendly structure and accessibility across devices.
+
+✅ Design Style Preferences:
+
+A futuristic, cinematic, and visually immersive aesthetic with dark themes and vibrant neon or gradient highlights.
+
+Bold typography paired with artistic layouts that create rhythm and flow.
+
+Creative animations such as hover effects, parallax scrolling, and motion-triggered elements that enhance interaction without cluttering.
+
+A balance between artistic flair and professional presentation — nothing too flashy that distracts from the work itself.
+
+✅ Tools & Technologies to Highlight:
+
+3D & VFX Software: Blender, Unreal Engine, Houdini, After Effects, Nuke, Cinema 4D.
+
+Techniques: Motion graphics, particle systems, lighting effects, animation rigs, compositing, color grading.
+
+Optionally link to certifications, tutorials, or project breakdowns that reflect skill depth.
+
+✅ Tone and Experience:
+
+The website should feel like stepping into a creative world — immersive, artistic, and forward-thinking.
+
+It should communicate passion, technical expertise, and storytelling in an approachable yet professional way.
+
+Interactive elements should invite exploration, encouraging visitors to spend time viewing and appreciating the portfolio.
