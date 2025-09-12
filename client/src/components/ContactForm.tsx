@@ -60,9 +60,9 @@ export default function ContactForm() {
   ];
 
   const socialLinks = [
-    { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", url: "#" },
-    { icon: <Instagram className="w-5 h-5" />, label: "Instagram", url: "#" },
-    { icon: <Youtube className="w-5 h-5" />, label: "YouTube", url: "#" },
+    { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", url: "https://linkedin.com/in/YOUR_USERNAME" },
+    { icon: <Instagram className="w-5 h-5" />, label: "Instagram", url: "https://instagram.com/YOUR_USERNAME" },
+    { icon: <Youtube className="w-5 h-5" />, label: "YouTube", url: "https://youtube.com/@YOUR_CHANNEL" },
   ];
 
   const handleInputChange = (field: keyof ContactFormData, value: string) => {
@@ -130,7 +130,7 @@ export default function ContactForm() {
       // Fallback to mailto link for immediate deployment
       const subject = `VFX Project Inquiry from ${formData.name}`;
       const body = `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'Not specified'}\nProject Type: ${formData.projectType || 'Not specified'}\nBudget: ${formData.budget || 'Not specified'}\nTimeline: ${formData.timeline || 'Not specified'}\n\nMessage:\n${formData.message}`;
-      const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailtoLink = `mailto:REPLACE_WITH_YOUR_EMAIL@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       
       window.open(mailtoLink, '_blank');
       
