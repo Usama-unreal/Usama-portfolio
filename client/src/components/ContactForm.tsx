@@ -83,33 +83,79 @@ export default function ContactForm() {
 
     setIsSubmitting(true);
     
-    // todo: remove mock functionality - replace with actual form submission
-    console.log("Form submitted:", formData);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    toast({
-      title: "Message sent successfully!",
-      description: "I'll get back to you within 24 hours.",
-    });
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        projectType: "",
-        budget: "",
-        timeline: "",
-        message: "",
+    try {
+      // For static hosting, use Formspree (replace YOUR_FORM_ID with your actual Formspree form ID)
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          projectType: formData.projectType,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          message: formData.message,
+        }),
       });
-    }, 3000);
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+        
+        toast({
+          title: "Message sent successfully!",
+          description: "I'll get back to you within 24 hours.",
+        });
+
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            name: "",
+            email: "",
+            company: "",
+            projectType: "",
+            budget: "",
+            timeline: "",
+            message: "",
+          });
+        }, 3000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+      
+    } catch (error) {
+      // Fallback to mailto link for immediate deployment
+      const subject = `VFX Project Inquiry from ${formData.name}`;
+      const body = `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'Not specified'}\nProject Type: ${formData.projectType || 'Not specified'}\nBudget: ${formData.budget || 'Not specified'}\nTimeline: ${formData.timeline || 'Not specified'}\n\nMessage:\n${formData.message}`;
+      const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      window.open(mailtoLink, '_blank');
+      
+      setIsSubmitted(true);
+      
+      toast({
+        title: "Opening email client",
+        description: "Your default email client will open with the message pre-filled.",
+      });
+
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          projectType: "",
+          budget: "",
+          timeline: "",
+          message: "",
+        });
+      }, 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleSocialClick = (platform: string) => {
